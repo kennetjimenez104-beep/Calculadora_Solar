@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calculadora Solar León</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <svg class="sun" viewBox="0 0 44 44" aria-hidden="true">
+      <circle cx="22" cy="22" r="8" fill="var(--sun)"/>
+      <g stroke="var(--sun)" stroke-width="2.5" stroke-linecap="round">
+        <path d="M22 4v6M22 34v6M4 22h6M34 22h6M9.3 9.3l4.2 4.2M30.5 30.5l4.2 4.2M9.3 34.7l4.2-4.2M30.5 13.5l4.2-4.2"/>
+      </g>
+    </svg>
+    <div>
+      <h1>Calculadora Solar León</h1>
+      <p>Escribe tu consumo mensual y obtén la factura eléctrica, el sistema fotovoltaico recomendado, su costo por componente, el ahorro y el retorno de inversión.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="panel" aria-label="Datos de entrada">
+      <div>
+        <label for="kwh">Consumo mensual</label>
+        <div class="kwh-row"><input id="kwh" type="number" inputmode="decimal" min="1" step="1" value="300" aria-describedby="kwh-error"><span>kWh</span></div>
+        <input id="kwh-range" type="range" min="20" max="1500" step="10" value="300" aria-label="Ajustar consumo mensual en kWh">
+        <div class="scale" aria-hidden="true"><span>20</span><span>150</span><span>500</span><span>1000</span><span>1500</span></div>
+        <div class="chips" role="group" aria-label="Consumos de ejemplo">
+          <button class="chip" type="button" data-kwh="100">100</button>
+          <button class="chip" type="button" data-kwh="300">300</button>
+          <button class="chip" type="button" data-kwh="800">800</button>
+        </div>
+        <p class="error" id="kwh-error" role="alert"></p>
+      </div>
+      <p class="hint">Hasta 150 kWh aplica la tarifa social (sin IVA) y se recomienda un sistema aislado. Arriba de eso, uno híbrido.</p>
+      <details>
+        <summary>Supuestos editables</summary>
+        <div class="assump">
+          <div><label for="p-fx">Tipo de cambio (C$ por US$)</label><input id="p-fx" type="number" step="0.1" value="37.3"></div>
+          <div><label for="p-sun">Horas sol pico por día</label><input id="p-sun" type="number" step="0.1" value="5.2"></div>
+          <div><label for="p-lim">Límite para sistema aislado (kWh)</label><input id="p-lim" type="number" step="10" value="150"></div>
+          <div><label for="p-panel">Precio panel 550 W (US$)</label><input id="p-panel" type="number" step="5" value="165"></div>
+          <div><label for="p-bat">Precio batería 5.12 kWh (US$)</label><input id="p-bat" type="number" step="50" value="1250"></div>
+        </div>
+      </details>
+    </aside>
+
+    <main class="results" id="results" aria-live="polite"></main>
+  </div>
+
+  <footer class="note">
+    Los precios de equipos, el tipo de cambio y las horas de sol son estimaciones de referencia, no cotizaciones. El análisis supone tarifa constante durante 25 años, mantenimiento anual de 1% de la inversión y un reemplazo de baterías al año 15. Pide cotizaciones reales antes de decidir.
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
