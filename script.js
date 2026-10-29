@@ -16,7 +16,7 @@
   var INV_AISLADOS = [[3, 650], [5, 1000], [6, 1200], [8, 1700], [10, 2200], [12, 2800]];
   var INV_HIBRIDOS = [[3, 950], [5, 1400], [6, 1650], [8, 2200], [10, 2800], [12, 3400]];
   var MPPT = [[40, 180], [60, 260], [80, 380], [100, 480]];
-  var PCT_CABLEADO = 0.08, PCT_INSTALACION = 0.12, TRAMITES_HIB = 200, PCT_MANT = 0.01, ANIOS = 16;
+  var PCT_CABLEADO = 0.08, PCT_INSTALACION = 0.12, TRAMITES_HIB = 200, PCT_MANT = 0.01, ANIOS = 25;
   var PARAM_TIPO = {
     AISLADO: { cobertura: 1.0, rendimiento: 0.65, autonomia: 1.0 },
     HIBRIDO: { cobertura: 0.8, rendimiento: 0.78, fraccionBat: 0.4 }
@@ -235,9 +235,7 @@
     if (tb) tb.addEventListener("click", function () {
       var box = $("chart-table");
       if (box.hidden) {
-      var ys = [];
-      for (var k = 0; k <= ANIOS; k += 5) ys.push(k);
-      if (ys[ys.length - 1] !== ANIOS) ys.push(ANIOS);
+        var ys = [0, 5, 10, 15, 20, 25];
         box.innerHTML = "<table><thead><tr><th>Año</th><th>Sin solar C$</th><th>Con solar C$</th></tr></thead><tbody>" +
           ys.map(function (y) { var p = f.serie[y]; return "<tr><td>" + y + "</td><td class='mono'>" + fmt(p.sin, 0) + "</td><td class='mono'>" + fmt(p.con, 0) + "</td></tr>"; }).join("") + "</tbody></table>";
         box.hidden = false; tb.textContent = "Ocultar tabla";
