@@ -137,7 +137,7 @@
   var state = null;
 
   function params() {
-    return { fx: num("p-fx", 37.3), sol: num("p-sun", 5.5), limite: num("p-lim", 150), panel: num("p-panel", 165), bateria: num("p-bat", 1250) };
+    return { fx: num("p-fx", 36.8), sol: num("p-sun", 5.5), limite: num("p-lim", 150), panel: num("p-panel", 165), bateria: num("p-bat", 1250) };
   }
 
   function billRows(a, b) {
