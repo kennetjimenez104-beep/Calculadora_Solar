@@ -236,7 +236,7 @@
       var box = $("chart-table");
       if (box.hidden) {
         var ys = [];
-          for (var k = 0; k <= ANIOS; k += 5) ys.push(k);
+          for (var k = 0; k <= ANIOS; k += 3) ys.push(k);
             if (ys[ys.length - 1] !== ANIOS) ys.push(ANIOS);
         box.innerHTML = "<table><thead><tr><th>Año</th><th>Sin solar C$</th><th>Con solar C$</th></tr></thead><tbody>" +
           ys.map(function (y) { var p = f.serie[y]; return "<tr><td>" + y + "</td><td class='mono'>" + fmt(p.sin, 0) + "</td><td class='mono'>" + fmt(p.con, 0) + "</td></tr>"; }).join("") + "</tbody></table>";
