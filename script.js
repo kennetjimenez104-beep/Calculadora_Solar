@@ -277,7 +277,7 @@
       g += "<line x1='" + m.l + "' x2='" + (W - m.r) + "' y1='" + yy + "' y2='" + yy + "' stroke='var(--line)' stroke-width='1' " + (t === 0 ? "" : "stroke-dasharray='2 4'") + "/>";
       g += "<text x='" + (m.l - 8) + "' y='" + (yy + 4) + "' text-anchor='end' font-size='11' fill='var(--muted)' font-family='IBM Plex Mono, monospace'>" + short(v) + "</text>";
     }
-    for (var xx = 0; xx <= ANIOS; xx += 5) {
+    for (var xx = 0; xx <= ANIOS; xx += 3) {
       g += "<text x='" + X(xx) + "' y='" + (H - 10) + "' text-anchor='middle' font-size='11' fill='var(--muted)' font-family='IBM Plex Mono, monospace'>" + (xx === 0 ? "año 0" : xx) + "</text>";
     }
     var last = serie[serie.length - 1];
